@@ -1,0 +1,135 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    padding: 30px 20px;
+    min-height: 100vh;
+}
+.container {
+    max-width: 1000px;
+    width: 100%;
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #1a1a2e;
+}
+.upload-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 12px;
+}
+#imageInput {
+    display: none;
+}
+.upload-btn {
+    display: inline-block;
+    padding: 10px 24px;
+    background: #4361ee;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+.upload-btn:hover {
+    background: #3a56d4;
+}
+#fileInfo {
+    color: #555;
+    font-size: 14px;
+}
+.editor-wrapper {
+    background: #1a1a2e;
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    min-height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.image-container {
+    max-width: 100%;
+    max-height: 600px;
+}
+#image {
+    max-width: 100%;
+    display: block;
+}
+.controls {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+button {
+    padding: 12px 28px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: #e9ecef;
+    color: #495057;
+}
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+#cropBtn {
+    background: #2ec4b6;
+    color: white;
+}
+#cropBtn:hover:not(:disabled) {
+    background: #26a89b;
+}
+#downloadBtn {
+    background: #ff9f1c;
+    color: white;
+}
+#downloadBtn:hover:not(:disabled) {
+    background: #e88e0e;
+}
+.result-section {
+    display: none;
+    margin-top: 10px;
+    border-top: 2px dashed #dee2e6;
+    padding-top: 25px;
+}
+.result-section h3 {
+    margin-bottom: 15px;
+    color: #1a1a2e;
+}
+.result-wrapper {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid #4361ee;
+    border-style: double;
+}
+#resultImage {
+    max-width: 100%;
+    max-height: 400px;
+    border: 2px solid #2ec4b6;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
