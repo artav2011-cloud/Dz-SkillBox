@@ -10,20 +10,24 @@
 <body>
     <div class="container">
         <h1>✂️ Обрезка фото</h1>
+        
         <div class="upload-section">
             <label for="imageInput" class="upload-btn">Выбрать изображение</label>
             <input type="file" id="imageInput" accept="image/*" />
             <span id="fileInfo">Файл не выбран</span>
         </div>
+
         <div class="editor-wrapper">
             <div class="image-container">
                 <img id="image" src="#" alt="Изображение для обрезки" />
             </div>
         </div>
+
         <div class="controls">
             <button id="cropBtn" disabled>Обрезать</button>
             <button id="downloadBtn" disabled>⬇️ Скачать новое изображение</button>
         </div>
+
         <div class="result-section" id="resultSection">
             <h3>Результат обрезки</h3>
             <div class="result-wrapper">
@@ -31,6 +35,7 @@
             </div>
         </div>
     </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.2/cropper.min.js"></script>
     <script type="module" src="app.js"></script>
 </body>
