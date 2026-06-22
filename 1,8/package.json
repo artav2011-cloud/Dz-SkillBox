@@ -1,0 +1,17 @@
+{
+  "name": "image-cropper",
+  "version": "1.0.0",
+  "description": "Приложение для обрезки фото",
+  "source": "index.html",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build"
+  },
+  "devDependencies": {
+    "parcel": "^2.12.0"
+  },
+  "dependencies": {
+    "cropperjs": "^1.6.2"
+  },
+  "browserslist": "> 0.5%, last 2 versions, not dead"
+}
