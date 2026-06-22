@@ -7,7 +7,7 @@ export function isValidCityName(value: string): boolean {
   if (!value || value.trim().length === 0) {
     return false;
   }
-  const validPattern = /^[a-zA-Zа-яА-Я\s\-!.,'’]+$/;
+  const validPattern = /^[a-zA-Zа-яА-Я\s\-!.,'’ÅåÄäÖöÜüİığĞşŞçÇ]+$/;
   return validPattern.test(value.trim());
 }
 
