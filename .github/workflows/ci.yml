@@ -10,6 +10,10 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: code_base
+
     steps:
     - uses: actions/checkout@v4
     - name: Use Node.js 20
@@ -17,5 +21,8 @@ jobs:
       with:
         node-version: '20'
         cache: 'npm'
+        cache-dependency-path: code_base/package-lock.json
     - run: npm ci
+      working-directory: code_base
     - run: npm test
+      working-directory: code_base
