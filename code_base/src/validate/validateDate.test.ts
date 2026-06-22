@@ -12,14 +12,14 @@ describe('validateDate - Валидация даты', () => {
 
   beforeAll(() => {
     global.Date = class extends Date {
-      constructor(...args: any[]) {
-        if (args.length === 0) {
-          super(2024, 0, 15);
-        } else {
-          super(...args);
-        }
-      }
-    } as DateConstructor;
+  constructor(...args: any[]) {
+    if (args.length === 0) {
+      super(2024, 0, 15);
+    } else {
+      super(args[0], args[1] || 0, args[2] || 1);
+    }
+  }
+} as DateConstructor;
   });
 
   afterAll(() => {
