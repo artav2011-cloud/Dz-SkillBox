@@ -9,29 +9,28 @@ const downloadBtn = document.getElementById('downloadBtn');
 const resultSection = document.getElementById('resultSection');
 const resultImage = document.getElementById('resultImage');
 
-imageInput.addEventListener('change', function (e) {
+imageInput.addEventListener('change', function(e) {
     const file = e.target.files[0];
     if (!file) return;
 
     if (file.size > 300 * 1024) {
-        alert('Размер файла превышает 300 КБ. Пожалуйста, выберите другое изображение.');
+        alert('Размер файла превышает 300 КБ');
         this.value = '';
         return;
     }
 
-    fileInfo.textContent = `📁 ${file.name} (${(file.size / 1024).toFixed(1)} КБ)`;
+    fileInfo.textContent = '📁 ' + file.name + ' (' + (file.size / 1024).toFixed(1) + ' КБ)';
 
     const reader = new FileReader();
-    reader.onload = function (event) {
-        const src = event.target.result;
-        image.src = src;
-
+    reader.onload = function(event) {
+        image.src = event.target.result;
+        
         if (cropper) {
             cropper.destroy();
             cropper = null;
         }
 
-        image.onload = function () {
+        image.onload = function() {
             cropper = new Cropper(image, {
                 aspectRatio: NaN,
                 viewMode: 1,
@@ -40,42 +39,34 @@ imageInput.addEventListener('change', function (e) {
                 cropBoxMovable: true,
                 cropBoxResizable: true,
                 background: false,
-                responsive: true,
-                checkOrientation: false,
+                responsive: true
             });
-
             cropBtn.disabled = false;
             downloadBtn.disabled = true;
             resultSection.style.display = 'none';
         };
-
-        if (image.complete) {
-            image.onload();
-        }
     };
-
     reader.readAsDataURL(file);
 });
 
-cropBtn.addEventListener('click', function () {
+cropBtn.addEventListener('click', function() {
     if (!cropper) return;
-
+    
     croppedDataURL = cropper.getCroppedCanvas({
         width: 300,
         height: 300,
-        imageSmoothingQuality: 'high',
+        imageSmoothingQuality: 'high'
     }).toDataURL('image/png');
-
+    
     resultImage.src = croppedDataURL;
     resultSection.style.display = 'block';
     downloadBtn.disabled = false;
 });
 
-downloadBtn.addEventListener('click', function () {
+downloadBtn.addEventListener('click', function() {
     if (!croppedDataURL) return;
-
     const link = document.createElement('a');
-    link.download = `cropped-image-${Date.now()}.png`;
+    link.download = 'cropped-image-' + Date.now() + '.png';
     link.href = croppedDataURL;
     link.click();
 });
