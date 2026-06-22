@@ -25,10 +25,10 @@ describe('validateCity - Валидация города', () => {
     });
 
     test('должен пропускать название со спецсимволами (Ağrı)', () => {
-      expect(isValidCityName('Ağrı')).toBe(true);
-      expect(isValidCityName('İstanbul')).toBe(true);
-      expect(isValidCityName('München')).toBe(true);
-    });
+  expect(isValidCityName('Ağrı')).toBe(true);
+  expect(isValidCityName('İstanbul')).toBe(true);
+  expect(isValidCityName('München')).toBe(true);
+});
 
     test('должен пропускать название из одной буквы', () => {
       expect(isValidCityName('A')).toBe(true);
@@ -82,7 +82,7 @@ describe('validateCity - Валидация города', () => {
       const result = validateCity('Ağrı');
       expect(result.isValid).toBe(true);
       expect(result.error).toBeNull();
-    });
+});
 
     test('должен пропускать название из одной буквы', () => {
       const result = validateCity('A');
